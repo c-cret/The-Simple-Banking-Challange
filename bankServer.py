@@ -62,13 +62,14 @@ def handle_client(conn, addr):
 
             msg = msg.split()
             action = msg[0].upper()
-
+            
+            # Edge Cases
             if len(msg) < 2 and action != "BALANCE":
                 conn.send(" ERROR, PLEASE TRY AGAIN ".encode(FORMAT))
                 continue
-
+            
+            # Not really necessary, more for debugging 
             print("MESSAGE RECIEVED : ", msg)
-
             print("ACTION RECIEVED : ", action)
             
             if action == "DISCONNECT":
